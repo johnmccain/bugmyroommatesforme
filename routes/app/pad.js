@@ -16,19 +16,27 @@ router.get('/new',
 router.post('/new',
 	require('connect-ensure-login').ensureLoggedIn(),
 	function(req, res) {
+		console.log('creating a pad...');
 		var pad = new Pad({
 			name: req.body.name,
 			description: req.body.description
 		});
-		pad.users.push(req.user);
+		pad.users.push(req.user._id);
 		pad.save(function(err, pad) {
 			if (err) {
 				// req.flash('info', 'Error in creating a pad ' + req.body.name);
 				return console.error(err);
 			}
 			console.log(pad);
+			User.findById(req.user._id, function(err, user) {
+				user.pads.push(pad._id);
+				user.save(function() {
+					res.redirect('/app/');
+				});
+			});
 			// req.flash('info', 'Succesfully created a pad ' + req.body.name);
 		});
+
 	});
 
 //edit
@@ -85,8 +93,6 @@ router.get('/:id',
 				pad: pad
 			});
 		});
-
-
 	});
 
 module.exports = router;

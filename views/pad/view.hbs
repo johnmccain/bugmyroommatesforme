@@ -1,7 +1,17 @@
 <h2>{{pad.name}}</h2>
 <p>{{pad.description}}</p>
+<a class="btn btn-primary" href="/app/pad/edit/{{pad._id}}">Edit</a>
 <hr/>
 <h4>Squad:</h4>
+<ul>
 {{#each pad.users}}
-	<p>this.name</p>
+	<li>
+		<a href="/app/user/{{this._id}}">
+			{{this.username}}
+		</a>
+	</li>
 {{/each}}
+{{#unless pad.users}}
+	<li>Squadless!</li>
+{{/unless}}
+</ul>

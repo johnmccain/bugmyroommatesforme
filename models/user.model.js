@@ -15,8 +15,7 @@ var User = new Schema({
 	}],
 	fbid: {
 		type: String,
-		required: false,
-		unique: true
+		required: false
 	},
 	admin: {
 		type: Boolean,

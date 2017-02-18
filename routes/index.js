@@ -50,7 +50,7 @@ router.post('/signup', function(req, res) {
 		passport.authenticate('local', {
 			failureFlash: true
 		})(req, res, function() {
-			res.redirect('/');
+			res.redirect('/app/');
 		});
 	});
 });
