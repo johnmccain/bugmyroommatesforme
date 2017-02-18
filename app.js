@@ -11,12 +11,13 @@ var LocalStrategy = require('passport-local').Strategy;
 
 //models
 var User = require('./models/user.model');
+var Bill = require('./models/bill.model');
 
 //routes
 var index = require('./routes/index');
 var user = require('./routes/app/user');
 var appIndex = require('./routes/app/index');
-
+var bill = require('./routes/app/bill');
 
 //Set up default mongoose connection
 var mongoDB = 'mongodb://127.0.0.1:27017/jayhacks';
@@ -54,6 +55,7 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/app', appIndex);
 app.use('/app/user', user);
+app.use('/app/bill', bill);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
