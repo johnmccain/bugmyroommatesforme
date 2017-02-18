@@ -4,6 +4,9 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var User = require('../models/user.model');
 
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 // Define routes.
 router.get('/',
 	function(req, res) {
@@ -12,6 +15,7 @@ router.get('/',
 		});
 	});
 
+//login & logout
 router.get('/login/',
 	function(req, res) {
 		res.render('login');
@@ -19,10 +23,11 @@ router.get('/login/',
 
 router.post('/login/',
 	passport.authenticate('local', {
-		failureRedirect: '/login/'
+		successRedirect: '/app/',
+		failureRedirect: '/login'
 	}),
-	function(req, res) {
-		res.redirect('/');
+	function(req, res, err) {
+
 	});
 
 router.get('/logout/',
@@ -30,13 +35,24 @@ router.get('/logout/',
 		req.logout();
 		res.redirect('/');
 	});
-//
-// router.get('/profile',
-// 	require('connect-ensure-login').ensureLoggedIn(),
-// 	function(req, res) {
-// 		res.render('profile', {
-// 			user: req.user
-// 		});
-// 	});
+
+router.get('/signup',
+	function(req, res) {
+		res.render('user/create');
+	});
+
+router.post('/signup', function(req, res) {
+	User.register(new User({
+		username: req.body.username,
+		email: req.body.email,
+	}), req.body.password, function(err, user) {
+		if (err) {
+			console.log(err);
+		}
+		passport.authenticate('local')(req, res, function() {
+			res.redirect('/');
+		});
+	});
+});
 
 module.exports = router;
