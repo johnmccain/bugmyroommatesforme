@@ -1,8 +1,31 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  background-color: #DDD;
+  font-family: "Open Sans"; }
 
-a {
-  color: #00B7FF;
-}
+.parent {
+  box-shadow: 0px 2px 5px #888888;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-top: 25px;
+  height: 400px;
+  background-color: #EEE;
+  border-radius: 10px;
+  padding-left: 12.5%;
+  padding-top: 4%; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold; }
+
+h1 {
+  margin-left: 40px;
+  color: #fff; }
+
+h3 {
+  margin-left: 0px;
+  text-align: center;
+  padding-top: 25px; }
+
+.form-group {
+  margin-left: 40px;
+  width: 50%;
+  text-align: left; }
