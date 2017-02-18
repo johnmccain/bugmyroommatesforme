@@ -16,6 +16,10 @@ var Pad = new Schema({
 		type: Schema.ObjectId,
 		ref: 'User'
 	}],
+	bills: [{
+		type: Schema.ObjectId,
+		ref: 'Bill'
+	}]
 });
 
 module.exports = mongoose.model('Pad', Pad);

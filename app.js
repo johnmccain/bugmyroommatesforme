@@ -12,11 +12,9 @@ var LocalStrategy = require('passport-local').Strategy;
 
 //models
 var User = require('./models/user.model');
-<<<<<<< HEAD
 var Bill = require('./models/bill.model');
-=======
 var Pad = require('./models/pad.model');
->>>>>>> 2e8edd36040334f900b036bdd2f0d802ab774301
+
 
 //routes
 var index = require('./routes/index');
@@ -62,11 +60,8 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/app', appIndex);
 app.use('/app/user', user);
-<<<<<<< HEAD
 app.use('/app/bill', bill);
-=======
 app.use('/app/pad', pad);
->>>>>>> 2e8edd36040334f900b036bdd2f0d802ab774301
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

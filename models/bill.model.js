@@ -10,23 +10,18 @@ var mongoose = require('mongoose'),
       type: String,
       required: true
     },
-    paymentscheme : {
+    paymentschemes : [{
       type: Schema.ObjectId,
-      ref: 'PaymentScheme'
-    },
+      ref: 'PaymentScheme',
+    }],
     //payment record
-
-    //due date
-    duedate : {
-      type: Date,
-      required: true
-    },
+		//TODO: add record array once record schema is defined
     //ObjectId for a user? Or string?
-    accountholder: {
+    accountholders: [{
       type: Schema.ObjectId,
       ref: 'User',
       required: false
-    },
+    }],
 
   });
 
