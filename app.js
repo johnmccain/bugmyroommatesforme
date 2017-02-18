@@ -1,5 +1,6 @@
 var express = require('express');
 var session = require('express-session');
+var flash = require('express-flash');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -11,10 +12,12 @@ var LocalStrategy = require('passport-local').Strategy;
 
 //models
 var User = require('./models/user.model');
+var Pad = require('./models/pad.model');
 
 //routes
 var index = require('./routes/index');
 var user = require('./routes/app/user');
+var pad = require('./routes/app/pad');
 var appIndex = require('./routes/app/index');
 
 
@@ -43,6 +46,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
@@ -54,6 +58,7 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/app', appIndex);
 app.use('/app/user', user);
+app.use('/app/pad', pad);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

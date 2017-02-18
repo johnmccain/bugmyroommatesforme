@@ -39,8 +39,12 @@ router.post('/edit/:id',
 router.get('/:id',
 	require('connect-ensure-login').ensureLoggedIn(),
 	function(req, res) {
-		res.render('user/index', {
-			user: req.user
+		User.findById(req.user._id)
+		.populate('pads')
+		.exec(function(err, user) {
+			res.render('user/view', {
+				user: req.user
+			});
 		});
 	});
 

@@ -18,6 +18,10 @@ var User = new Schema({
 		required: false,
 		unique: true
 	},
+	admin: {
+		type: Boolean,
+		default: false
+	}
 });
 
 User.plugin(passportLocalMongoose);

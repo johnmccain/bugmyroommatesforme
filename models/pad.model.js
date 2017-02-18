@@ -8,6 +8,10 @@ var Pad = new Schema({
 		type: String,
 		required: true
 	},
+	description: {
+		type: String,
+		default: '',
+	},
 	users: [{
 		type: Schema.ObjectId,
 		ref: 'User'

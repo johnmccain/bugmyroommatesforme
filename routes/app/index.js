@@ -7,6 +7,7 @@ var User = require('../../models/user.model');
 router.get('/',
 	require('connect-ensure-login').ensureLoggedIn(),
 	function(req, res) {
+		console.log(req.user);
 		res.send('dont worry be appy');
 	});
 
