@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px"
+	 height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<g id="Head">
+	<ellipse fill="#006837" stroke="#000000" stroke-width="8" stroke-miterlimit="10" cx="250" cy="230" rx="165.5" ry="101.5"/>
+</g>
+<g id="Head_Details">
+	<ellipse fill="#003D1C" cx="230" cy="245" rx="10" ry="7.5"/>
+	<ellipse fill="#003D1C" cx="270" cy="245" rx="10" ry="7.5"/>
+</g>
+<g id="Tongue">
+	<path fill="#C63C46" stroke="#000000" stroke-width="8" stroke-miterlimit="10" d="M184,273v76l0,0c0.23,22,30.24,38.5,66,38.5
+		s63.77-16.5,64-38.5l0,0v-76H184z"/>
+	<path fill="#C1272D" stroke="#000000" stroke-width="8" stroke-miterlimit="10" d="M250,387.5c35.76,0,63.77-16.5,64-38.5v-76h-64"
+		/>
+</g>
+<g id="Fly">
+	<circle stroke="#000000" stroke-width="8" stroke-miterlimit="10" cx="250" cy="331.5" r="12"/>
+	<path fill="#99FFFC" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M241.31,326.31
+		c-2.73,2.73-10.02-0.12-16.26-6.36c-6.25-6.25-7.03-13.34-4.3-16.08c2.73-2.73,7.95-0.07,14.2,6.17
+		C241.2,316.3,244.05,323.58,241.31,326.31z"/>
+	<path fill="#99FFFC" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M258.55,326.55c-3.31-2-2.29-9.75,2.27-17.31
+		c4.57-7.57,11.76-9.32,15.07-7.32c3.31,2,1.48,6.99-3.09,14.55C268.24,324.04,261.86,328.55,258.55,326.55z"/>
+</g>
+<g id="Eyes">
+	<g>
+		<g>
+			<path fill="#FFFFFF" d="M289.35,175.5c-1.84-4.82-2.85-10.04-2.85-15.5c0-24.02,19.48-43.5,43.5-43.5s43.5,19.48,43.5,43.5
+				c0,5.46-1.02,10.68-2.85,15.5"/>
+			<path d="M285.6,176h8.75c-1.72-5-3.85-10.92-3.85-15.75c0-21.78,17.72-39.63,39.5-39.63s39.5,17.91,39.5,39.69
+				c0,4.83-1.54,10.69-3.26,15.69h8c2.07-6,3.26-9.94,3.26-15.75c0-26.19-21.31-47.63-47.5-47.63s-47.5,21.5-47.5,47.69
+				C282.5,166.12,283.53,170,285.6,176z"/>
+		</g>
+		<circle stroke="#000000" stroke-width="8" stroke-miterlimit="10" cx="325" cy="155" r="13.5"/>
+	</g>
+	<g>
+		<g>
+			<path fill="#FFFFFF" d="M210.65,175.5c1.84-4.82,2.85-10.04,2.85-15.5c0-24.02-19.48-43.5-43.5-43.5s-43.5,19.48-43.5,43.5
+				c0,5.46,1.02,10.68,2.85,15.5"/>
+			<path d="M214.4,176h-8.75c1.72-5,3.85-10.92,3.85-15.75c0-21.78-17.72-39.63-39.5-39.63s-39.5,17.91-39.5,39.69
+				c0,4.83,1.55,10.69,3.26,15.69h-8c-2.07-6-3.26-9.94-3.26-15.75c0-26.19,21.31-47.63,47.5-47.63s47.5,21.5,47.5,47.69
+				C217.5,166.12,216.47,170,214.4,176z"/>
+		</g>
+		<circle stroke="#000000" stroke-width="8" stroke-miterlimit="10" cx="175" cy="155" r="13.5"/>
+	</g>
+</g>
+</svg>
