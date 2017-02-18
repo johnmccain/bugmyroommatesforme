@@ -28,3 +28,9 @@ node_modules
 
 # Debug log from npm
 npm-debug.log
+
+#mongo database
+mongodb-linux-x86_64-amazon-3.4.2
+
+#node.js
+node-v6.9.5-linux-x64
