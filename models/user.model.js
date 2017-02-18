@@ -1,16 +1,22 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
-	passportLocalMongoose = require('passport-local-mongoose');
+	passportLocalMongoose = require('passport-local-mongoose'),
+	Pad = require('./pad.model');
 
 var User = new Schema({
 	email: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
-
+	pads: [{
+		type: Schema.ObjectId,
+		ref: 'Pad'
+	}],
 	fbid: {
 		type: String,
-		required: false
+		required: false,
+		unique: true
 	},
 });
 

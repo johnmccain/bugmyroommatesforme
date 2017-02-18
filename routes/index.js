@@ -4,9 +4,6 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var User = require('../models/user.model');
 
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
-
 // Define routes.
 router.get('/',
 	function(req, res) {
@@ -38,7 +35,7 @@ router.get('/logout/',
 
 router.get('/signup',
 	function(req, res) {
-		res.render('user/create');
+		res.render('signup');
 	});
 
 router.post('/signup', function(req, res) {
