@@ -21,7 +21,8 @@ router.get('/login/',
 router.post('/login/',
 	passport.authenticate('local', {
 		successRedirect: '/app/',
-		failureRedirect: '/login'
+		failureRedirect: '/login',
+		failureFlash: true
 	}),
 	function(req, res, err) {
 
@@ -46,8 +47,10 @@ router.post('/signup', function(req, res) {
 		if (err) {
 			console.log(err);
 		}
-		passport.authenticate('local')(req, res, function() {
-			res.redirect('/');
+		passport.authenticate('local', {
+			failureFlash: true
+		})(req, res, function() {
+			res.redirect('/app/');
 		});
 	});
 });

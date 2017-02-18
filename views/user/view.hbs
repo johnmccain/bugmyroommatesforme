@@ -1,0 +1,19 @@
+<h2>{{user.username}}</h2>
+<p>{{user.email}}</p>
+<a class="btn btn-primary" href="/app/user/edit/{{user._id}}">Edit</a>
+<hr/>
+<h4>Pads:</h4>
+<pre>{{user.pads}}</pre>
+<ul>
+
+{{#each user.pads}}
+	<li>
+		<a href="/app/pad/{{this._id}}">
+			{{this.name}}_
+		</a>
+	</li>
+{{/each}}
+{{#unless user.pads}}
+	<li>Padless!</li>
+{{/unless}}
+</ul>

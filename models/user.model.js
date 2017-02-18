@@ -15,9 +15,12 @@ var User = new Schema({
 	}],
 	fbid: {
 		type: String,
-		required: false,
-		unique: true
+		required: false
 	},
+	admin: {
+		type: Boolean,
+		default: false
+	}
 });
 
 User.plugin(passportLocalMongoose);
