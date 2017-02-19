@@ -22,4 +22,10 @@ router.get('/',
 		});
 	});
 
+//catch any malformed requests, redirect to /app/
+router.get('/.*',
+	function(req, res) {
+		res.redirect('/app/');
+	});
+
 module.exports = router;

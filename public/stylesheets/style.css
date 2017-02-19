@@ -64,6 +64,8 @@ h6 {
     background-color: #F8F8F8;
     border-radius: 10px;
     width: 400px; }
+    .access-container form {
+      width: 80%; }
     .access-container img {
       max-width: 75%;
       width: 250px; }
@@ -75,8 +77,8 @@ h6 {
       -ms-flex-direction: row;
           flex-direction: row; }
   .form-group {
-    margin-left: 40px;
-    width: 50%;
+    margin: 0 auto;
+    width: 100%;
     text-align: left; } }
 
 @media only screen and (max-width: 360px) {

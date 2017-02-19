@@ -107,13 +107,12 @@ router.post('/:id',
 								if (err) return res.send(500, err);
 								user.pads.push(pad._id);
 								user.save(function(err) {
+									if (err) return res.send(500, err);
+									res.redirect('/app/pad/' + pad._id);
+								});
 							});
 						});
-						if (err) return res.send(500, err);
-						res.redirect('/app/pad/' + pad._id);
-					});
 				});
-
 		}
 		res.redirect('/app/');
 	});

@@ -48,12 +48,18 @@
 					{{/unless}}
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-
+					{{#unless access}}
 					<li>
-						<a href="/logout/">
-							<i class="fa fa-user" aria-hidden="true"></i> Log Out
+						<a href="/app/user/{{user.id}}">
+							<i class="fa fa-user" aria-hidden="true"></i> {{user.username}}
 						</a>
 					</li>
+					<li>
+						<a href="/logout/">
+							<i class="fa fa-sign-out" aria-hidden="true"></i> Log Out
+						</a>
+					</li>
+					{{/unless}}
 				</ul>
 			</div>
 		</div>

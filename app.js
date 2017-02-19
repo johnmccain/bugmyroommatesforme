@@ -61,12 +61,19 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//username middleware
+app.use('/', function(req, res, next) {
+	res.locals.user = req.user;
+	console.log('Request from ' + res.locals.user);
+	next();
+});
+
 //define our other routes files here
-app.use('/', index);
-app.use('/app', appIndex);
 app.use('/app/user', user);
 app.use('/app/bill', bill);
 app.use('/app/pad', pad);
+app.use('/app', appIndex);
+app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
