@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
-	User = require('./user.model');
+	User = require('./user.model'),
+	Post = require('./post.model');
 
 //A pad represents a shared residence or organization to be managed
 var Pad = new Schema({
@@ -19,7 +20,11 @@ var Pad = new Schema({
 	bills: [{
 		type: Schema.ObjectId,
 		ref: 'Bill'
-	}]
+	}],
+	posts: [{
+		type: Schema.ObjectId,
+		ref: 'Post'
+	}],
 });
 
 module.exports = mongoose.model('Pad', Pad);

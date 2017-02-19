@@ -16,3 +16,13 @@
 {{/unless}}
 </ul>
 <a class= "btn btn-primary" href="/app/bill/new/{{pad._id}}">Create a bill type</a>
+<div id="feedpost">
+	<div style="text-align:center;" class="container">
+			{{{myform}}}
+			<table style="width:100% border=1">
+			{{#each pad.posts}}
+				<tr><td>{{this.content}}</td></tr>
+			{{/each}}
+	</div>
+
+</div>
