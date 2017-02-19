@@ -8,6 +8,11 @@ var User = require('../../models/user.model');
 router.get('/edit/:id',
 	require('connect-ensure-login').ensureLoggedIn(),
 	function(req, res) {
+		if(req.user._id != req.param.id) {
+			return res.send(403, {
+				error: 'Invalid user edit attempt'
+			});
+		}
 		console.log(req.user);
 		res.render('user/edit', {
 			user: req.user

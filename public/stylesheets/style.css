@@ -1,48 +1,51 @@
 body {
+  background-color: #BFC6CB;
   padding-top: 50px;
   font-family: "Open Sans"; }
 
-#loginBtn {
-  float: left;
-  margin-top: -10%;
-  margin-left: 0;
-  font-size: 47%;
-  position: relative; }
+.access-wrapper {
+  display: block; }
 
-#SignUpBtn {
-  float: right;
-  margin-right: 35%;
-  margin-top: -10%;
-  font-size: 47%;
-  position: relative; }
+.access-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #E7F9FF;
+  border-radius: 0;
+  width: 100vw;
+  height: calc(100vw - 50px); }
+  .access-container img {
+    max-width: 75%;
+    width: 250px; }
+  .access-container .access-buttons {
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row; }
 
-.parent {
-  box-shadow: 0 2px 5px #888888;
-  margin-left: 25%;
-  margin-right: 25%;
-  padding-top: 25px;
-  height: 400px;
-  background-color: #EEE;
-  border-radius: 10px;
-  padding-left: 12.5%;
-  padding-top: 4%; }
-
-.indexParent {
-  box-shadow: 0 2px 5px #888888;
-  margin-left: 25%;
-  margin-right: 25%;
-  width: 50%;
-  height: 500px;
-  border-radius: 10px;
-  padding-left: 12.5%;
-  font-size: 32px;
-  opacity: 0; }
-
-.title {
-  text-align: center;
-  font-family: "Open Sans";
-  font-size: 32px;
-  font-weight: bold; }
+@media only screen and (min-width: 768px) {
+  .access-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; }
+  .access-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #E7F9FF;
+    border-radius: 10px;
+    width: 400px; }
+    .access-container img {
+      max-width: 75%;
+      width: 250px; }
+    .access-container .access-buttons {
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row; } }
 
 h1,
 h2,
