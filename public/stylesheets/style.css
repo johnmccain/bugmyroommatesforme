@@ -27,6 +27,12 @@ body {
     -ms-flex-direction: row;
         flex-direction: row; }
 
+.post-area p {
+  padding: 20px;
+  margin: 10px 0;
+  background-color: #F8F8F8;
+  border-radius: 5px; }
+
 .center-text {
   text-align: center; }
 

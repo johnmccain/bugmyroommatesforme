@@ -4,49 +4,58 @@
 <hr/>
 <h4>Squad:</h4>
 <ul>
-{{#each pad.users}}
-	<li>
-		<a href="/app/user/{{this._id}}">
+	{{#each pad.users}}
+		<li>
+			<a href="/app/user/{{this._id}}">
 			{{this.username}}
 		</a>
-	</li>
-{{/each}}
-{{#unless pad.users}}
-	<li>Squadless!</li>
-{{/unless}}
+		</li>
+	{{/each}}
+	{{#unless pad.users}}
+		<li>Squadless!</li>
+	{{/unless}}
 </ul>
 <h4>Bills:</h4>
 <ul>
-{{#each pad.bills}}
-	<li>
-		<a href="/app/bill/{{this._id}}">
+	{{#each pad.bills}}
+		<li>
+			<a href="/app/bill/{{this._id}}">
 			{{this.name}}
 		</a>
-	</li>
-{{/each}}
-{{#unless pad.bills}}
-	<li>Bill-less!</li>
-{{/unless}}
+		</li>
+	{{/each}}
+	{{#unless pad.bills}}
+		<li>Bill-less!</li>
+	{{/unless}}
 </ul>
 <br>
-<a class= "btn btn-primary" href="/app/bill/new/{{pad._id}}">Create a bill type</a>
+<a class="btn btn-primary" href="/app/bill/new/{{pad._id}}">Create a bill type</a>
 <br>
 <br>
 <ul>
-{{#each liabilities}}
-	<li>{{this.username.username}} {{this.str}}</li>
-{{/each}}
+	{{#each liabilities}}
+		<li>{{this.username.username}} {{this.str}}</li>
+	{{/each}}
 </ul>
 
-<br><hr><br>
+<br>
+<hr>
 
 <div id="feedpost">
-	<div style="text-align:center;" class="container">
-			{{{myform}}}
-			<table style="width:100% border=1">
+	<h5>Pad Feed</h5>
+		<form method="post">
+			<input type="hidden" name="pad" value="{{pad}}" />
+			<input type="hidden" name="userName" value="{{user.username}}" />
+			<br><br>
+			<label for="poststuff"> Enter your Post:</label>
+			<input id="poststuff" type="textarea" name="poststuff" class="form-control" rows="4" cols="50">
+			<br>
+			<button class="btn btn-primary" type="submit">Submit</button> '
+		</form>
+		<br><br>
+		<div class="post-area">
 			{{#each pad.posts}}
-				<tr><td>{{this.content}}</td></tr>
+					<p>{{this.content}}</p>
 			{{/each}}
-	</div>
-
+		</div>
 </div>

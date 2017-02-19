@@ -86,7 +86,7 @@ router.post('/:id',
 			if(err) return res.send(500, err);
 			Pad.findById(req.params.id)
 			.exec(function(err, pad){
-				pad.posts.push(post._id);
+				pad.posts.unshift(post._id);
 				pad.save(function(err){
 					if(err) return res.send(500, err);
 					console.log(post.content);
@@ -137,21 +137,9 @@ router.get('/:id',
 			}
 
 			console.log(pad);
-			//add in username
-			var html = '<br><br><form method="post">' +
-						 '<input type="hidden" name="pad" value="{{pad}}" />' +
-						 '<input type="hidden" name="userName" value="{{user.username}}" />' +
-						 '<br><br><br>' +
-						 'Enter your Post:' +
-						 '<input type="textarea" name="poststuff" class="form-control" id="poststuff" rows="4" cols="50">  </input>' +
-						 '<br>' +
-						 '<button class="btn" type="submit">Submit</button>' +
-					'</form>';
-
 
 			res.render('pad/view', {
 				pad: pad,
-				myform: html,
 				liabilities: renderableliabilites
 			});
 		});

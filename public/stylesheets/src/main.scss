@@ -34,6 +34,15 @@ body {
 	}
 }
 
+.post-area {
+	p {
+		padding: 20px;
+		margin: 10px 0;
+		background-color: $light;
+		border-radius: 5px;
+	}
+}
+
 .center-text {
 	text-align: center;
 }
