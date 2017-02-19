@@ -104,7 +104,7 @@ router.get('/:id',
 	require('connect-ensure-login').ensureLoggedIn(),
 	function(req, res) {
 		Pad.findById(req.params.id)
-		.populate('users posts')
+		.populate('users posts bills')
 		.exec(function(err, pad) {
 			if (err) {
 				console.log(err);

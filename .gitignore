@@ -34,3 +34,7 @@ mongodb-linux-x86_64-amazon-3.4.2
 
 #node.js
 node-v6.9.5-linux-x64
+
+#compiled css and js
+public/javascripts/bundle.js
+public/stylesheets/style.css

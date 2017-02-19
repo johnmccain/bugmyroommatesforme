@@ -1,18 +1,22 @@
-<h1>BugMyRoomatesFor.Me <img style="display: inline-block; width: 200px;" src="/images/logo.svg"></h1>
-<hr>
+<h2 id="welcome1">BugMyRoomatesFor.Me <img style="display: inline-block; width: 50px;" src="/images/logo.svg"><p id="welcome">Welcome, {{user.username}}</p></h2>
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    {{#each user.pads}}
+    	<li>
+    		<a href="/app/user/{{this._id}}">
+    			{{this.name}}
+    		</a>
+    	</li>
+    {{/each}}
+    <li>
+    </li>
+    <li><a href="/app/pad/new">Create a pad</a></li>
+    </li>
+  </ul>
+</nav>
 
-<pre>{{user}}</pre>
 
-<h3>Welcome, {{user.username}}</h3>
 
-<h5>Your Pads</h5>
-<ul>
-	{{#each user.pads}}
-		<li>
-			<a href="/app/pad/{{this._id}}">
-				{{this.name}}
-			</a>
-		</li>
-	{{/each}}
-</ul>
-<a class="btn btn-primary" href="/app/pad/new">Create a pad</a>
+
+
+<!--<pre>{{user}}</pre>-->
