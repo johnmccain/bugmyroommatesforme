@@ -98,7 +98,6 @@ router.post('/:id',
 			User.findById(req.param.id)
 				.exec(function(err, user) {
 					if (err) return res.send(500, err);
-					if (!user) return res.send(404, 'No such user');
 					Pad.findById(req.body.pad)
 						.exec(function(err, pad) {
 							if (err) return res.send(500, err);
