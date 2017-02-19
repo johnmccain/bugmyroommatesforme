@@ -4,12 +4,11 @@ var passport = require('passport');
 var router = express.Router();
 var User = require('../../models/user.model');
 
-//TODO: verify that accessed user is the requester
-
 //edit
 router.get('/edit/:id',
 	require('connect-ensure-login').ensureLoggedIn(),
 	function(req, res) {
+		console.log(req.user);
 		res.render('user/edit', {
 			user: req.user
 		});
@@ -19,6 +18,11 @@ router.post('/edit/:id',
 	require('connect-ensure-login').ensureLoggedIn(),
 	function(req, res, next) {
 		//submit, generate success feedback
+		if(req.user._id != req.param.id) {
+			return res.send(403, {
+				error: 'Invalid user edit attempt'
+			});
+		}
 		User.findOneAndUpdate({
 			_id: req.params.id
 		}, {
