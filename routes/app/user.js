@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var router = express.Router();
 var User = require('../../models/user.model');
+var Pad = require('../../models/pad.model');
 
 //edit
 router.get('/edit/:id',
@@ -44,16 +45,20 @@ router.post('/edit/:id',
 router.get('/search/:term',
 	require('connect-ensure-login').ensureLoggedIn(),
 	function(req, res) {
-		let re = new RegExp(req.param.term);
 		User.find({
-			username: re
-		}, function(err, users) {
-			if (err) res.send(500, err);
-			res.render('user/search', {
-				users: users
+				username: {
+					"$regex": req.params.term,
+					"$options": "i"
+				}
+			},
+			function(err, users) {
+				if (err) res.send(500, err);
+				res.render('user/search', {
+					users: users
+				});
 			});
-		});
 	});
+
 
 //view (this has to go at end or it will catch all other user pages and treat their paths as an id)
 router.get('/:id',
@@ -98,15 +103,15 @@ router.post('/:id',
 					pad.save(function(err) {
 						if (err) return res.send(500, err);
 						User.getById(req.param.id)
-						.exec(function(err, user) {
-							if (err) return res.send(500, err);
-							if (user.indexOf(pad._id) < 0)
-							user.push(pad._id);
-							user.save(function(err) {
+							.exec(function(err, user) {
 								if (err) return res.send(500, err);
-								res.redirect('#');
+								if (user.indexOf(pad._id) < 0)
+									user.push(pad._id);
+								user.save(function(err) {
+									if (err) return res.send(500, err);
+									res.redirect('#');
+								});
 							});
-						});
 					});
 				});
 		}

@@ -4,7 +4,7 @@
 {{#unless ownUser}}
 	<form method="post">
 		<div class="form-group">
-			<label for="pad">Account Holders (hold shift to select more than one):</label>
+			<label for="pad">Available pads:</label>
 			  <select id="pad" name="pad" class="form-control">
 				{{#each clientUser.pads}}
 				  <option value="{{this._id}}">{{this.name}}</option>
