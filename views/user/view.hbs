@@ -1,9 +1,9 @@
-<h2>{{user.username}}</h2>
+<h2>{{user.username}} {{#if ownUser}}(you){{/if}}</h2>
 <p>{{user.email}}</p>
-<a class="btn btn-primary" href="/app/user/edit/{{user._id}}">Edit</a>
+{{#if ownUser}}<a class="btn btn-primary" href="/app/user/edit/{{user._id}}">Edit</a>{{/if}}
+{{#unless ownUser}}{{!-- invite to pad --}}{{/unless}}
 <hr/>
 <h4>Pads:</h4>
-<pre>{{user.pads}}</pre>
 <ul>
 
 {{#each user.pads}}
