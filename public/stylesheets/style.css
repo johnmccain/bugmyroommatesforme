@@ -12,17 +12,27 @@ body {
   justify-content: center;
   flex-direction: column;
   padding: 10px;
-  background-color: #E7F9FF;
-  border-radius: 0;
-  width: 100vw;
-  height: calc(100vw - 50px); }
+  border-radius: 0; }
   .access-container img {
-    max-width: 75%;
-    width: 250px; }
+    max-width: 75%; }
   .access-container .access-buttons {
     align-items: center;
     justify-content: space-between;
     flex-direction: row; }
+
+.center-text {
+  text-align: center; }
+
+.btn-lg {
+  font-size: 2em; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold; }
 
 @media only screen and (min-width: 768px) {
   .access-wrapper {
@@ -45,17 +55,8 @@ body {
     .access-container .access-buttons {
       align-items: center;
       justify-content: space-between;
-      flex-direction: row; } }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: bold; }
-
-.form-group {
-  margin-left: 40px;
-  width: 50%;
-  text-align: left; }
+      flex-direction: row; }
+  .form-group {
+    margin-left: 40px;
+    width: 50%;
+    text-align: left; } }

@@ -20,13 +20,9 @@ body {
 	justify-content: center;
 	flex-direction: column;
 	padding: 10px;
-	background-color: $light;
 	border-radius: 0;
-	width: 100vw;
-	height: calc(100vw - 50px);
 	img {
 		max-width: 75%;
-		width: 250px;
 	}
 	.access-buttons {
 		align-items: center;
@@ -34,6 +30,23 @@ body {
 		flex-direction: row;
 	}
 
+}
+.center-text {
+	text-align: center;
+}
+
+.btn-lg {
+	font-size: 2em;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
 }
 
 @media only screen and (min-width: 768px) {
@@ -63,6 +76,11 @@ body {
 			flex-direction: row;
 		}
 
+	}
+	.form-group {
+		margin-left: 40px;
+		width: 50%;
+		text-align: left;
 	}
 }
 
@@ -102,20 +120,6 @@ body {
 // 	font-weight: bold;
 // }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: bold;
-}
-
-.form-group {
-	margin-left: 40px;
-	width: 50%;
-	text-align: left;
-}
 //
 // #top {
 // 	width: 100%;
