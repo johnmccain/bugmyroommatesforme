@@ -117,13 +117,13 @@ router.get('/:id',
 			console.log(pad);
 			//add in username
 			var html = '<br><br><form method="post">' +
-						 '<input type="hidden" name="pad" placeholder="{{pad}}" />' +
-						 '<input type="hidden" name="userName" placeholder="{{user.username}}" />' +
+						 '<input type="hidden" name="pad" value="{{pad}}" />' +
+						 '<input type="hidden" name="userName" value="{{user.username}}" />' +
 						 '<br><br><br>' +
 						 'Enter your Post:' +
-						 '<input type="textarea" name="poststuff" id="poststuff" rows="4" cols="50">  </input>' +
+						 '<input type="textarea" name="poststuff" class="form-control" id="poststuff" rows="4" cols="50">  </input>' +
 						 '<br>' +
-						 '<button type="submit">Submit</button>' +
+						 '<button class="btn" type="submit">Submit</button>' +
 					'</form>';
 
 

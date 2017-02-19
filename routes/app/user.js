@@ -64,8 +64,11 @@ router.get('/:id',
 						error: err
 					});
 				}
-				console.log(user);
-				let ownProfile = user._id == req.user._id;
+				if(!user) {
+					res.send('No such user');
+				}
+				console.log(req.user);
+				let ownProfile = user._id == req.user.id;
 				res.render('user/view', {
 					user: user,
 					ownProfile: ownProfile,

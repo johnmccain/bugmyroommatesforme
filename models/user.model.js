@@ -24,5 +24,7 @@ var User = new Schema({
 });
 
 User.plugin(passportLocalMongoose);
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
+User.plugin(deepPopulate);
 
 module.exports = mongoose.model('User', User);

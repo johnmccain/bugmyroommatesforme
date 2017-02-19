@@ -30,4 +30,7 @@ var TransactionRecord = new Schema({
 	}
 });
 
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
+TransactionRecord.plugin(deepPopulate);
+
 module.exports = mongoose.model('TransactionRecord', TransactionRecord);

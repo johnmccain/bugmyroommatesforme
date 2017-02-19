@@ -3,7 +3,7 @@
 <ul class="nav nav-pills nav-stacked">
 {{#each user.pads}}
 	<li>
-		<a href="/app/user/{{this._id}}">
+		<a href="/app/pad/{{this._id}}">
 			{{this.name}}
 		</a>
 	</li>
@@ -16,6 +16,8 @@
 	</li>
 {{/unless}}
 </ul>
+
+<a href="/app/pad/new" class="btn btn-primary">New Pad</a>
 
 
 <!--<pre>{{user}}</pre>-->

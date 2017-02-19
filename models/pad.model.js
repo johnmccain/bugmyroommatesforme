@@ -27,4 +27,7 @@ var Pad = new Schema({
 	}],
 });
 
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
+Pad.plugin(deepPopulate);
+
 module.exports = mongoose.model('Pad', Pad);

@@ -56,4 +56,7 @@ var Bill = new Schema({
 // 	}));
 // };
 
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
+Bill.plugin(deepPopulate);
+
 module.exports = mongoose.model('Bill', Bill);

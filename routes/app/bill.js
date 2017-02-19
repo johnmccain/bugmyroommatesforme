@@ -6,6 +6,7 @@ var Pad = require('../../models/pad.model');
 var Bill = require('../../models/bill.model');
 var BillController = require('../../controllers/bill.controller');
 var PaymentScheme = require('../../models/paymentscheme.model');
+var TransactionRecord = require('../../models/transactionrecord.model');
 var router = express.Router();
 
 
@@ -155,7 +156,7 @@ router.get('/:id',
 	require('connect-ensure-login').ensureLoggedIn(),
 	function(req, res) {
 		Bill.findById(req.params.id)
-			.populate('transactions paymentschemes accountholders')
+			.deepPopulate('transactions.user paymentschemes.user accountholders')
 			.exec(function(err, bill) {
 				console.log(bill);
 				if (err) {
@@ -173,6 +174,35 @@ router.get('/:id',
 					console.log(msg);
 				});
 			});
+	});
+
+router.post('/:id',
+	require('connect-ensure-login').ensureLoggedIn(),
+	function(req, res) {
+		let entry = {};
+		console.log(req.body);
+		if(req.body.user) entry.user = req.body.user;
+		if(req.body.duedate) entry.duedate = new Date(req.body.duedate);
+		entry.amount = req.body.amount || 0;
+		entry.date = new Date(req.body.date) || new Date();
+		let transaction = new TransactionRecord(entry);
+		transaction.save(function(err) {
+			console.log('save transaction');
+			if(err) return res.send(500, err);
+			Bill.findById(req.params.id)
+			.exec(function(err, bill) {
+				console.log('find bill');
+
+				if(err) return res.send(500, err);
+				bill.transactions.push(transaction);
+				bill.save(function(err) {
+					console.log('save bill');
+
+					if(err) return res.send(500, err);
+					res.redirect('#');
+				});
+			});
+		});
 	});
 
 module.exports = router;
