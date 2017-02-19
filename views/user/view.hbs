@@ -1,7 +1,19 @@
 <h2>{{user.username}} {{#if ownUser}}(you){{/if}}</h2>
 <p>{{user.email}}</p>
 {{#if ownUser}}<a class="btn btn-primary" href="/app/user/edit/{{user._id}}">Edit</a>{{/if}}
-{{#unless ownUser}}{{!-- invite to pad --}}{{/unless}}
+{{#unless ownUser}}
+	<form method="post">
+		<div class="form-group">
+			<label for="pad">Account Holders (hold shift to select more than one):</label>
+			  <select id="pad" name="pad" class="form-control">
+				{{#each clientUser.pads}}
+				  <option value="{{this._id}}">{{this.name}}</option>
+				{{/each}}
+			  </select>
+		</div>
+		<button type=submit class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add to a pad</form>
+	</form>
+{{/unless}}
 <hr/>
 <h4>Pads:</h4>
 <ul>
@@ -9,7 +21,7 @@
 {{#each user.pads}}
 	<li>
 		<a href="/app/pad/{{this._id}}">
-			{{this.name}}_
+			{{this.name}}
 		</a>
 	</li>
 {{/each}}

@@ -1,23 +1,30 @@
-<p id="welcome">Welcome, {{user.username}}</p>
-
+<h3>Welcome, {{user.username}}</h3>
+<h5>Your Pads: </h5>
 <ul class="nav nav-pills nav-stacked">
-{{#each user.pads}}
-	<li>
-		<a href="/app/pad/{{this._id}}">
+	{{#each user.pads}}
+		<li>
+			<a href="/app/pad/{{this._id}}">
 			{{this.name}}
 		</a>
-	</li>
-{{/each}}
-{{#unless user.pads}}
-	<li>
-		<a href="#">
+		</li>
+	{{/each}}
+	{{#unless user.pads}}
+		<li>
+			<a href="#">
 			No pads
 		</a>
-	</li>
-{{/unless}}
+		</li>
+	{{/unless}}
 </ul>
-
+<br>
 <a href="/app/pad/new" class="btn btn-primary">New Pad</a>
+<br><br>
 
-
+<div class="input-group">
+	<input type="text" id="user-search-expression" class="form-control" placeholder="Search users">
+	<span class="input-group-btn">
+		<button onclick="userSearch();" class="btn btn-default" type="button">Search</button>
+	</span>
+</div>
+<small>You can use regular expressions in your search</small>
 <!--<pre>{{user}}</pre>-->

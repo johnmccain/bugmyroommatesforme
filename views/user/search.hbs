@@ -1,5 +1,17 @@
+<br>
 <ul>
 {{#each users}}
-<li><a href="/app/user/{{app}}">{{this.username}}</li>
+<li><a href="/app/user/{{this._id}}">{{this.username}}</li>
 {{/each}}
+{{#unless users}}
+<li>No search results found</li>
+{{/unless}}
 </ul>
+<br>
+<div class="input-group">
+	<input type="text" id="user-search-expression" class="form-control" placeholder="Search users">
+	<span class="input-group-btn">
+		<button onclick="userSearch();" class="btn btn-default" type="button">Search</button>
+	</span>
+</div>
+<small>You can use regular expressions in your search</small>

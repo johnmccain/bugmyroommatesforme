@@ -1,11 +1,10 @@
 <h3>{{bill.name}}</h3>
-<p>{{bill.balance}}</p>
+<p>Balance: <strong>{{bill.balance}}</strong> (+prepaid/-owed)</p>
 <hr>
 <h5>Account Holders:</h5>
 {{#each bill.accountholders}}
 	<p>{{this.username}}</p>
 {{/each}}
-
 
 <h5>Payment Schemes</h5>
 <ul>
