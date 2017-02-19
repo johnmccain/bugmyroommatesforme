@@ -99,7 +99,7 @@ router.post('/new/:id',
 //this is for viewing a scheme
 router.get('/scheme/:id', function(req, res) {
 	PaymentScheme.findById(req.params.id)
-	.populate('user ratio')
+	.populate('user')
 	.exec(function(err, scheme) {
 		if (err) {
 			//oh no
@@ -110,6 +110,43 @@ router.get('/scheme/:id', function(req, res) {
 		}
 		res.render('bill/scheme/view', {
 			scheme: scheme
+		});
+	});
+});
+
+router.get('/scheme/edit/:id', function(req, res) {
+	PaymentScheme.findById(req.params.id)
+	.populate('user')
+	.exec(function(err, scheme) {
+		if (err) {
+			//oh no
+			console.log(err);
+			return res.send(500, {
+				error: err
+			});
+		}
+		res.render('bill/scheme/edit', {
+			scheme: scheme
+		});
+	});
+});
+
+router.post('/scheme/edit/:id', function(req, res) {
+	PaymentScheme.findById(req.params.id)
+	.exec(function(err, scheme) {
+		if (err) {
+			//oh no
+			console.log(err);
+			return res.send(500, {
+				error: err
+			});
+		}
+		scheme.ratio = req.body.ratio;
+		scheme.save(function(err) {
+			if(err) {
+				console.log(err);
+			}
+			res.redirect('/app/bill/scheme/' + req.params.id);
 		});
 	});
 });
