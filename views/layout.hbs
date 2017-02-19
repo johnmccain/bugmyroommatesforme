@@ -31,12 +31,14 @@
 			<div id="navigation-collapse" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li role="separator" class="divider"></li>
+					{{#unless access}}
 					<li>
-						<a href="#">nav1</a>
+						<a href="/app/">nav1</a>
 					</li>
 					<li>
 						<a href="#">nav2</a>
 					</li>
+					{{/unless}}
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 

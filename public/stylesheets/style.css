@@ -7,18 +7,25 @@ body {
   display: block; }
 
 .access-container {
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
   padding: 10px;
   border-radius: 0; }
   .access-container img {
     max-width: 75%; }
   .access-container .access-buttons {
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row; }
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-direction: row;
+        flex-direction: row; }
 
 .center-text {
   text-align: center; }
@@ -36,15 +43,23 @@ h6 {
 
 @media only screen and (min-width: 768px) {
   .access-wrapper {
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; }
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-direction: column;
+        flex-direction: column; }
   .access-container {
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-direction: column;
+        flex-direction: column;
     padding: 20px;
     background-color: #E7F9FF;
     border-radius: 10px;
@@ -53,9 +68,12 @@ h6 {
       max-width: 75%;
       width: 250px; }
     .access-container .access-buttons {
-      align-items: center;
-      justify-content: space-between;
-      flex-direction: row; }
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+      -ms-flex-direction: row;
+          flex-direction: row; }
   .form-group {
     margin-left: 40px;
     width: 50%;
