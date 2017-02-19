@@ -1,0 +1,12 @@
+<form method="post">
+	<div class="form-group">
+		<a href="/app/user/{{scheme.user._id}}">
+		{{scheme.user.username}}
+	</a> :&nbsp;
+		<label for="ratio">{{this.username}}:</label>
+		<input id="ratio" class="form-control" name="ratio" type="number" step="0.01" min="0.00" max="1.00" value="{{scheme.ratio}}">
+	</div>
+	<div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Submit"/>
+    </div>
+</form>
