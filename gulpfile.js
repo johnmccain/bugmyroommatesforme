@@ -4,6 +4,7 @@ var babel = require('gulp-babel');
 var shell = require('gulp-shell');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var autoprefixer = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
 
 var paths = {
@@ -31,6 +32,9 @@ gulp.task('sass', function() {
 	gulp.src(paths.style.all)
 		.pipe(sass().on('error', onError))
 		.pipe(concat('style.css'))
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions']
+		}))
 		.pipe(gulp.dest(paths.style.output));
 });
 
@@ -39,7 +43,7 @@ gulp.task('script', function() {
 		.pipe(concat('bundle.js'))
 		.pipe(babel({
 			'presets': ['es2015']
-		}))
+		})).on('error', onError)
 		// .pipe(uglify()) //add this back in for production
 		.pipe(gulp.dest(paths.script.output));
 });

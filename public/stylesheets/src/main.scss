@@ -1,44 +1,99 @@
-$mycolor: #fff;
-$light:#F1FFE7;
-$dark:#001219;
-$green:#31A543;
-$red:#D84B36;
-$navy:#022F40;
-body{
-	background-color: #DDD;
+$light: #F1FFE7;
+$dark: #001219;
+$green: #31A543;
+$red: #D84B36;
+$navy: #022F40;
+
+body {
+	padding-top: 50px; //make room for navbar
 	font-family: "Open Sans";
 }
 
-.parent{
-	box-shadow: 0px 2px 5px #888888;
+#loginBtn {
+	float: left;
+	margin-top: -10%;
+	margin-left: 0;
+	font-size: 47%;
+	position: relative;
+}
+
+#SignUpBtn {
+	float: right;
+	margin-right: 35%;
+	margin-top: -10%;
+	font-size: 47%;
+	position: relative;
+}
+
+// #creds {
+// 	margin-left: 0;
+// }
+
+.parent {
+	box-shadow: 0 2px 5px #888888;
 	margin-left: 25%;
 	margin-right: 25%;
 	padding-top: 25px;
 	height: 400px;
 	background-color: #EEE;
 	border-radius: 10px;
-	padding-left:12.5%;
+	padding-left: 12.5%;
 	padding-top: 4%;
-	
+}
+//
+// #home {
+// 	margin-left: 40px;
+// }
+
+.indexParent {
+	box-shadow: 0 2px 5px #888888;
+	margin-left: 25%;
+	margin-right: 25%;
+	width: 50%;
+	height: 500px;
+	//background-color: #EEE;
+	border-radius: 10px;
+	padding-left: 12.5%;
+	font-size: 32px;
+	opacity: 0;
 }
 
-h1,h2,h3,h4,h5,h6{
+.title {
+	text-align: center;
+	font-family: "Open Sans";
+	font-size: 32px;
 	font-weight: bold;
 }
 
-h1 {
-	margin-left: 40px;
-	color: $mycolor;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
 }
 
-h3 {
-	margin-left: 0px;
-	text-align: center;
-	padding-top: 25px;
-}
-
-.form-group{
+.form-group {
 	margin-left: 40px;
 	width: 50%;
-	text-align:left;
+	text-align: left;
 }
+//
+// #top {
+// 	width: 100%;
+// 	height: 5%;
+// }
+//
+// #welcome {
+// 	display: inline-block;
+// 	float: right;
+// 	margin-right: 10%;
+// 	margin-top: 2%;
+// 	font-size: 100%;
+// }
+//
+// #welcome1 {
+// 	margin-top: -.3%;
+// 	font-size: 100%;
+// }

@@ -1,9 +1,23 @@
 body {
-  background-color: #DDD;
+  padding-top: 50px;
   font-family: "Open Sans"; }
 
+#loginBtn {
+  float: left;
+  margin-top: -10%;
+  margin-left: 0;
+  font-size: 47%;
+  position: relative; }
+
+#SignUpBtn {
+  float: right;
+  margin-right: 35%;
+  margin-top: -10%;
+  font-size: 47%;
+  position: relative; }
+
 .parent {
-  box-shadow: 0px 2px 5px #888888;
+  box-shadow: 0 2px 5px #888888;
   margin-left: 25%;
   margin-right: 25%;
   padding-top: 25px;
@@ -13,17 +27,30 @@ body {
   padding-left: 12.5%;
   padding-top: 4%; }
 
-h1, h2, h3, h4, h5, h6 {
+.indexParent {
+  box-shadow: 0 2px 5px #888888;
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 50%;
+  height: 500px;
+  border-radius: 10px;
+  padding-left: 12.5%;
+  font-size: 32px;
+  opacity: 0; }
+
+.title {
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 32px;
   font-weight: bold; }
 
-h1 {
-  margin-left: 40px;
-  color: #fff; }
-
-h3 {
-  margin-left: 0px;
-  text-align: center;
-  padding-top: 25px; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold; }
 
 .form-group {
   margin-left: 40px;

@@ -1,18 +1,14 @@
-<h1>BugMyRoomatesFor.Me <img style="display: inline-block; width: 200px;" src="/images/logo.svg"></h1>
-<hr>
+<p id="welcome">Welcome, {{user.username}}</p>
 
-<pre>{{user}}</pre>
-
-<h3>Welcome, {{user.username}}</h3>
-
-<h5>Your Pads</h5>
-<ul>
-	{{#each user.pads}}
-		<li>
-			<a href="/app/pad/{{this._id}}">
-				{{this.name}}
-			</a>
-		</li>
-	{{/each}}
+<ul class="nav nav-pills nav-stacked">
+{{#each user.pads}}
+	<li>
+		<a href="/app/user/{{this._id}}">
+			{{this.name}}
+		</a>
+	</li>
+{{/each}}
 </ul>
-<a class="btn btn-primary" href="/app/pad/new">Create a pad</a>
+
+
+<!--<pre>{{user}}</pre>-->
