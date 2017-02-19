@@ -41,8 +41,15 @@ router.post('/edit/:id',
 		});
 	});
 
-//delete
-//TODO
+router.get('/search/:term',
+	require('connect-ensure-login').ensureLoggedIn(),
+	function(req, res) {
+		let re = new RegularExpression(req.param.term);
+		User.find({username: re}, function(err, users) {
+			if(err) res.send(500, err);
+			res.render('user/search', {users: users});
+		});
+	});
 
 //view (this has to go at end or it will catch all other user pages and treat their paths as an id)
 router.get('/:id',
@@ -58,9 +65,11 @@ router.get('/:id',
 					});
 				}
 				console.log(user);
-
+				let ownProfile = user._id == req.user._id;
 				res.render('user/view', {
-					user: user
+					user: user,
+					ownProfile: ownProfile,
+					clientUser: req.user
 				});
 			});
 	});
