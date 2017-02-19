@@ -7,15 +7,17 @@ var User = require('../models/user.model');
 // Define routes.
 router.get('/',
 	function(req, res) {
+		res.locals.access = true;
 		res.render('index', {
-			user: req.user
+
 		});
 	});
 
 //login & logout
 router.get('/login/',
 	function(req, res) {
-		res.render('login');
+		res.locals.access = true;
+		res.render('login',{access:true});
 	});
 
 router.post('/login/',
@@ -36,7 +38,7 @@ router.get('/logout/',
 
 router.get('/signup',
 	function(req, res) {
-		res.render('signup');
+		res.render('signup',{access:true});
 	});
 
 router.post('/signup', function(req, res) {
