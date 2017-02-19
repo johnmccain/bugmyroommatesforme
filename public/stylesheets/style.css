@@ -73,5 +73,16 @@ h3 {
   height: 5%;
   background-color: red; }
 
-.dropdown {
-  float: left; }
+#welcome {
+  display: inline-block;
+  float: right;
+  margin-right: 10%;
+  margin-top: 2%;
+  font-size: 100%; }
+
+#welcome1 {
+  margin-top: -.3%;
+  font-size: 100%; }
+
+nav {
+  background-color: blue; }

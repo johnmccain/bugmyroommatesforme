@@ -1,56 +1,22 @@
-<h2>BugMyRoomatesFor.Me <img style="display: inline-block; width: 90px;" src="/images/logo.svg"></h2>
-<hr>
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Pad 1
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
+<h2 id="welcome1">BugMyRoomatesFor.Me <img style="display: inline-block; width: 50px;" src="/images/logo.svg"><p id="welcome">Welcome, {{user.username}}</p></h2>
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    {{#each user.pads}}
+    	<li>
+    		<a href="/app/user/{{this._id}}">
+    			{{this.name}}
+    		</a>
+    	</li>
+    {{/each}}
+    <li>
+    </li>
+    <li><a href="/app/pad/new">Create a pad</a></li>
+    </li>
   </ul>
-</div>
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Pad 2
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Main Page</a></li>
-    <li><a href="#">Bill Page</a></li>
-    <li><a href="#">Payment Calculator</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Pad 3
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
-<pre>{{user}}</pre>
-<div id="top">Hello, this is the div thats you've been searching for</div>
-<h3>Welcome, {{user.username}}</h3>
+</nav>
 
-<h5>Your Pads</h5>
-<ul>
-	{{#each user.pads}}
-		<li>
-			<a href="/app/pad/{{this._id}}">
-				{{this.name}}
-			</a>
-		</li>
-	{{/each}}
-</ul>
-<a class="btn btn-primary" href="/app/pad/new">Create a pad</a>
+
+
+
+
+<!--<pre>{{user}}</pre>-->
