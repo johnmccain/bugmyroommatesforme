@@ -1,8 +1,6 @@
 //paymentCalculator.controller.js
 //Logic for calculating how much each roommate owes towards each bill
 
-//data in ->
-
 
 class Bill {
     constructor(_id, name, balance, Users, paymentFees) {
@@ -14,8 +12,6 @@ class Bill {
     }
 }
 
-var totalBillDues = 0.0;
-
 
 //User = Name, Amount already paid towards this bill, ratio or share of the debt
 var Users = [
@@ -25,6 +21,7 @@ var Users = [
                 [ {"name":"John", "paid":0.00, "ratio":0.25}, {"name":"Matt", "paid":0.00, "ratio":0.25}, {"name":"Liia", "paid":0.00, "ratio":0.25}, {"name":"Ryan", "paid":0.00, "ratio":0.25} ]
             ];
 
+var localRatios = false;
 
 var water = new Bill(1, "Water", 150.11, Users[0], 3.00);
 var electric = new Bill(2, "Electric", 120.05, Users[1], 4.00);
@@ -83,36 +80,70 @@ if (localRatios) {
         billsTotal += bills[i].balance;
     }
 
+    var maxPayBillIndex = 0;
     var maxPayers = 1;
     for(var i = 0; i < Users.length; i++) {
         if(Users[i].length > maxPayers) {
             maxPayers = Users[i].length;
+            maxPayBillIndex = i;
         }
     }
+
+    var UserPayRecords = Users[maxPayBillIndex];
 
 
     //If there is no way to split the total evenly,
     //$0.01 will be distributed to roommates till it can be evenly split
     remainder = Math.round((billsTotal * 100) % maxPayers);
     var evenSplitPayment = (billsTotal - remainder) / maxPayers;
-    for(var i = 0; i < remainder; i++) {
-        roommates[i].totalBillDues = evenSplitPayment + 0.01;
-    }
-    for(var i = remainders; i < roommates.length; i++) {
-        roommates[i].totalBillDues = evenSplitPayment;
-    }
+    var currentBillBalance = 0;
+    var userIterator = 0;
+    console.log("evenSplitPayment = " + evenSplitPayment);
 
-
-    //Main calculations and splitting occur here
     for(var i = 0; i < bills.length; i++) {
-        for(var j = 0; j < roommates.length; j++) {
-            if(roommates[j].totalBillDues >= bills[i].remainbal) {
-                roommates[j].billAmounts.push(bills[i].remainbal);
-                roommates[j].totalBillDues -= bills[i].remainbal;
-                bills[i].remainbal = 0.0;
-            }else {
+        payShares.push([]);
+        currentBill = bills[i];
+        currentBillBalance = bills[i].balance;
 
+        while(currentBillBalance > 0 && userIterator < maxPayers) {
+            currentUser = UserPayRecords[userIterator];
+            if(currentUser.paid >= evenSplitPayment) { //current user has paid their share already
+                userIterator++;
+            }else if (evenSplitPayment - currentUser.paid >= currentBillBalance) { //current user can pay the rest of this bill's balance
+                currentUser.paid += currentBillBalance;
+                if(remainder > 0) {
+                    payShares[i].push({
+                        "User"  : currentUser.name,
+                        "amount": Math.round(currentBillBalance*100 + 1)/100
+                    });
+                    remainder--;
+                }else {
+                    payShares[i].push({
+                        "User"  : currentUser.name,
+                        "amount": Math.round(currentBillBalance*100)/100
+                    });
+                }
+                currentBillBalance = 0;
+            }else { //currentUser still needs to pay some money, but not the entire remaining balance of this bill
+                if(remainder > 0) {
+                    payShares[i].push({
+                        "User"  : currentUser.name,
+                        "amount": Math.round((evenSplitPayment - currentUser.paid)*100 + 1)/100
+                    });
+                    remainder--;
+                }else {
+                    payShares[i].push({
+                        "User"  : currentUser.name,
+                        "amount": Math.round((evenSplitPayment - currentUser.paid)*100) / 100
+                    });
+                }
+                currentBillBalance -= evenSplitPayment - currentUser.paid;
+                currentUser.paid = evenSplitPayment;
             }
+        }
+
+        if(currentBillBalance > 0) {
+            console.log("Error! Not all bills were able to be paid!");
         }
     }
 }
@@ -133,7 +164,3 @@ for(var i = 0; i < payShares.length-1; i++) {
         console.log(paymentPlan.Bills[i].Users[j]);
     }
 }
-
-
-
-//Return paymentPlan
