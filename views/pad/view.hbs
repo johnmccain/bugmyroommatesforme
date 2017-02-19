@@ -28,7 +28,18 @@
 	<li>Bill-less!</li>
 {{/unless}}
 </ul>
+<br>
 <a class= "btn btn-primary" href="/app/bill/new/{{pad._id}}">Create a bill type</a>
+<br>
+<br>
+<ul>
+{{#each liabilities}}
+	<li>{{this.username.username}} {{this.str}}</li>
+{{/each}}
+</ul>
+
+<br><hr><br>
+
 <div id="feedpost">
 	<div style="text-align:center;" class="container">
 			{{{myform}}}

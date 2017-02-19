@@ -95,27 +95,27 @@ router.post('/:id',
 	require('connect-ensure-login').ensureLoggedIn(),
 	function(req, res) {
 		if (req.body.pad) {
-			Pad.getById(req.body.pad)
-				.exec(function(err, pad) {
+			User.findById(req.param.id)
+				.exec(function(err, user) {
 					if (err) return res.send(500, err);
-					if (pad.indexOf(req.param.id) < 0)
-						pad.push(req.param.id);
-					pad.save(function(err) {
-						if (err) return res.send(500, err);
-						User.getById(req.param.id)
-							.exec(function(err, user) {
+					if (!user) return res.send(404, 'No such user');
+					Pad.findById(req.body.pad)
+						.exec(function(err, pad) {
+							if (err) return res.send(500, err);
+							pad.users.push(user._id);
+							pad.save(function(err) {
 								if (err) return res.send(500, err);
-								if (user.indexOf(pad._id) < 0)
-									user.push(pad._id);
+								user.pads.push(pad._id);
 								user.save(function(err) {
-									if (err) return res.send(500, err);
-									res.redirect('#');
-								});
 							});
+						});
+						if (err) return res.send(500, err);
+						res.redirect('/app/pad/' + pad._id);
 					});
 				});
+
 		}
-		res.redirect('#');
+		res.redirect('/app/');
 	});
 
 module.exports = router;

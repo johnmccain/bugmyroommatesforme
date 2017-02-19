@@ -43,10 +43,7 @@
 					<li role="separator" class="divider"></li>
 					{{#unless access}}
 					<li>
-						<a href="/app/">nav1</a>
-					</li>
-					<li>
-						<a href="#">nav2</a>
+						<a href="/app/">home</a>
 					</li>
 					{{/unless}}
 				</ul>
@@ -69,8 +66,11 @@
 	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 	<script src="/javascripts/bundle.js"></script>
 	{{!-- render flash messages --}}
-	{{#if messages.info}}
-		<pre>{{messages.info}}</pre>
+	{{#if message}}
+		<div class="alert alert-info alert-dismissable fade">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			{{message}}
+		</div>
 	{{/if}}
 </body>
 

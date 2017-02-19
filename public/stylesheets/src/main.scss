@@ -14,6 +14,7 @@ body {
 .access-wrapper {
 	display: block;
 }
+
 .access-container {
 	display: flex;
 	align-items: center;
@@ -21,16 +22,18 @@ body {
 	flex-direction: column;
 	padding: 10px;
 	border-radius: 0;
+
 	img {
 		max-width: 75%;
 	}
+
 	.access-buttons {
 		align-items: center;
 		justify-content: space-between;
 		flex-direction: row;
 	}
-
 }
+
 .center-text {
 	text-align: center;
 }
@@ -38,7 +41,6 @@ body {
 .btn-lg {
 	font-size: 2em;
 }
-
 
 h1,
 h2,
@@ -48,7 +50,6 @@ h5,
 h6 {
 	font-weight: bold;
 }
-
 @media only screen and (min-width: 768px) {
 	//desktop styles
 	.access-wrapper {
@@ -57,6 +58,7 @@ h6 {
 		justify-content: center;
 		flex-direction: column;
 	}
+
 	.access-container {
 		display: flex;
 		align-items: center;
@@ -66,24 +68,30 @@ h6 {
 		background-color: $light;
 		border-radius: 10px;
 		width: 400px;
+
 		img {
 			max-width: 75%;
 			width: 250px;
 		}
+
 		.access-buttons {
 			align-items: center;
 			justify-content: space-between;
 			flex-direction: row;
 		}
-
 	}
+
 	.form-group {
 		margin-left: 40px;
 		width: 50%;
 		text-align: left;
 	}
 }
-
+@media only screen and (max-width: 360px) {
+	.navbar-brand {
+		display: none;
+	}
+}
 // .parent {
 // 	box-shadow: 0 2px 5px #888888;
 // 	margin-left: 25%;
@@ -119,7 +127,6 @@ h6 {
 // 	font-size: 32px;
 // 	font-weight: bold;
 // }
-
 //
 // #top {
 // 	width: 100%;

@@ -24,7 +24,7 @@ router.post('/login/',
 	passport.authenticate('local', {
 		successRedirect: '/app/',
 		failureRedirect: '/login',
-		failureFlash: true
+		message: 'invaild credentials'
 	}),
 	function(req, res, err) {
 

@@ -5,7 +5,8 @@ var router = express.Router();
 var User = require('../../models/user.model');
 var Pad = require('../../models/pad.model');
 var Post = require('../../models/post.model');
-
+var Bill = require('../../models/bill.model');
+var BillController = require('../../controllers/bill.controller');
 
 //create
 router.get('/new',
@@ -104,7 +105,7 @@ router.get('/:id',
 	require('connect-ensure-login').ensureLoggedIn(),
 	function(req, res) {
 		Pad.findById(req.params.id)
-		.populate('users posts bills')
+		.deepPopulate('users posts bills bills.paymentschemes bills.transactions')
 		.exec(function(err, pad) {
 			if (err) {
 				console.log(err);
@@ -113,6 +114,27 @@ router.get('/:id',
 				});
 			}
 
+			let userliabilities = BillController.equalize(pad.bills); //user id, balance pairs
+			console.log(typeof userliabilities);
+			let renderableliabilites = [];
+
+			let keys = Object.keys(userliabilities);
+			for(let i = 0; i < keys.length; ++i) {
+				if(userliabilities.hasOwnProperty(keys[i])) {
+					let j;
+					for(j = 0; j < pad.users.length; ++j) {
+						if(pad.users[j]._id == keys[i]) {
+							break;
+						}
+					}
+					let renderable = {
+						username: pad.users[j],
+						id: keys[i],
+						str: (userliabilities[keys[i]] <= 0) ? ('owes ' + Math.abs(userliabilities[keys[i]])) : ('is ahead ' + userliabilities[keys[i]])
+					};
+					renderableliabilites.push(renderable);
+				}
+			}
 
 			console.log(pad);
 			//add in username
@@ -130,6 +152,7 @@ router.get('/:id',
 			res.render('pad/view', {
 				pad: pad,
 				myform: html,
+				liabilities: renderableliabilites
 			});
 		});
 
